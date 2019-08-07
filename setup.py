@@ -23,7 +23,7 @@ def package_data(pkg, roots):
 
 setup(
     name='crowdsourcehinter-xblock',
-    version='0.1',
+    version='0.2',
     description='crowdsourcehinter XBlock',   # TODO: write a better description.
     packages=[
         'crowdsourcehinter',
