@@ -11,7 +11,7 @@ import six.moves.html_parser
 
 from xblock.core import XBlock
 from xblock.fields import Scope, Dict, List, Boolean, String
-from xblock.fragment import Fragment
+from web_fragments.fragment import Fragment
 
 log = logging.getLogger(__name__)
 html_parser = six.moves.html_parser.HTMLParser()
