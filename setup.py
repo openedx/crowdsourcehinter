@@ -23,7 +23,7 @@ def package_data(pkg, roots):
 
 setup(
     name='crowdsourcehinter-xblock',
-    version='0.4',
+    version='0.5',
     description='crowdsourcehinter XBlock',   # TODO: write a better description.
     packages=[
         'crowdsourcehinter',
@@ -38,12 +38,9 @@ setup(
     },
     package_data=package_data("crowdsourcehinter", ["static", "public"]),
     classifiers=[
-        'Programming Language :: Python',
-        'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.6',
-        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: Implementation :: CPython',
     ],
 )
