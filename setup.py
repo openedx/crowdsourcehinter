@@ -4,6 +4,9 @@ from __future__ import absolute_import
 import os
 from setuptools import setup
 
+with open('README.md') as a:
+    long_description = a.read()
+
 
 def package_data(pkg, roots):
     """Generic function to find package_data.
@@ -46,8 +49,10 @@ def is_requirement(line):
 
 setup(
     name='crowdsourcehinter-xblock',
-    version='0.5',
-    description='crowdsourcehinter XBlock',   # TODO: write a better description.
+    version='0.6',
+    description='crowdsourcehinter XBlock',  # TODO: write a better description.
+    long_description=long_description,
+    long_description_content_type='text/markdown',
     packages=[
         'crowdsourcehinter',
     ],
@@ -58,7 +63,15 @@ setup(
         ]
     },
     package_data=package_data("crowdsourcehinter", ["static", "public"]),
+    keywords='crowdsourcehinter xblock',
+    url='https://github.com/edx/crowdsourcehinter',
+    author='edX',
+    include_package_data=True,
     classifiers=[
+        'Development Status :: 3 - Alpha',
+        'Intended Audience :: Developers',
+        'Topic :: Software Development :: Build Tools',
+        'License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.8',
