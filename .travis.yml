@@ -19,3 +19,11 @@ script:
 notifications:
   on_success: change
   on_failure: change  # `always` will be the setting once code changes slow down
+deploy:
+  provider: pypi
+  user: edx
+  distributions: sdist bdist_wheel
+  on:
+    tags: true
+  password:
+    secure:
