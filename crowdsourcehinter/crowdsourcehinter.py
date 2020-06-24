@@ -1,20 +1,20 @@
-from __future__ import absolute_import
-import logging
-import operator
-import pkg_resources
-import random
-import json
 import copy
+import json
+import logging
+import random
 
-import six.moves.urllib.request, six.moves.urllib.parse, six.moves.urllib.error
+import pkg_resources
 import six.moves.html_parser
-
-from xblock.core import XBlock
-from xblock.fields import Scope, Dict, List, Boolean, String
+import six.moves.urllib.error
+import six.moves.urllib.parse
+import six.moves.urllib.request
 from web_fragments.fragment import Fragment
+from xblock.core import XBlock
+from xblock.fields import Scope, Dict, List, String
 
 log = logging.getLogger(__name__)
 html_parser = six.moves.html_parser.HTMLParser()
+
 
 class CrowdsourceHinter(XBlock):
     """
