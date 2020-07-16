@@ -2,3 +2,15 @@
 *~
 *.egg-info/
 demo.tar.gz
+
+# JetBrains
+.idea
+
+# QA
+coverage.xml
+
+# Unit test / coverage reports
+.coverage
+.tox
+
+node_modules/

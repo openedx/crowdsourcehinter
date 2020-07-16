@@ -4,8 +4,8 @@
 #
 #    make upgrade
 #
-flake8==3.8.2             # via -r requirements/travis.in
-importlib-metadata==1.6.0  # via flake8
+flake8==3.8.3             # via -r requirements/travis.in
+importlib-metadata==1.7.0  # via flake8
 mccabe==0.6.1             # via flake8
 pycodestyle==2.6.0        # via flake8
 pyflakes==2.2.0           # via flake8
