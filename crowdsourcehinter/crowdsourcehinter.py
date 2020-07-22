@@ -4,13 +4,14 @@ import logging
 import random
 
 import pkg_resources
+
 import six.moves.html_parser
 import six.moves.urllib.error
 import six.moves.urllib.parse
 import six.moves.urllib.request
 from web_fragments.fragment import Fragment
 from xblock.core import XBlock
-from xblock.fields import Scope, Dict, List, String
+from xblock.fields import Dict, List, Scope, String
 
 log = logging.getLogger(__name__)
 html_parser = six.moves.html_parser.HTMLParser()
