@@ -6,7 +6,7 @@
 #
 attrs==21.2.0
     # via pytest
-coverage[toml]==6.0
+coverage[toml]==6.0.1
     # via pytest-cov
 iniconfig==1.1.1
     # via pytest
