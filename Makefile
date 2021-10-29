@@ -23,14 +23,14 @@ upgrade: $(COMMON_CONSTRAINTS_TXT)  ## update the requirements/*.txt files with 
 	pip-compile --allow-unsafe --rebuild -o requirements/pip.txt requirements/pip.in
 	pip-compile --upgrade -o requirements/pip_tools.txt requirements/pip_tools.in
 	pip-compile --upgrade -o requirements/base.txt requirements/base.in
-	pip-compile --upgrade -o requirements/travis.txt requirements/travis.in
+	pip-compile --upgrade -o requirements/ci.txt requirements/ci.in
 	pip-compile --upgrade -o requirements/test.txt requirements/test.in
 
 requirements: ## install development environment requirements
 	pip install -r requirements/pip.txt
 	pip install -q -r requirements/pip_tools.txt
 	pip install -qr requirements/base.txt --exists-action w
-	pip-sync requirements/base.txt requirements/constraints.txt requirements/test.txt requirements/travis.txt
+	pip-sync requirements/base.txt requirements/constraints.txt requirements/test.txt requirements/ci.txt
 
 quality-python: ## Run python linters
 	flake8 . --count --select=E901,E999,F821,F822,F823 --show-source --statistics

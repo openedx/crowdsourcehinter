@@ -5,7 +5,7 @@
 #    make upgrade
 #
 flake8==3.9.2
-    # via -r requirements/travis.in
+    # via -r requirements/ci.in
 mccabe==0.6.1
     # via flake8
 pycodestyle==2.7.0
