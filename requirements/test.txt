@@ -6,15 +6,15 @@
 #
 attrs==21.2.0
     # via pytest
-coverage[toml]==6.0
+coverage[toml]==6.1.2
     # via pytest-cov
 iniconfig==1.1.1
     # via pytest
-packaging==21.0
+packaging==21.2
     # via pytest
 pluggy==1.0.0
     # via pytest
-py==1.10.0
+py==1.11.0
     # via pytest
 pyparsing==2.4.7
     # via packaging
@@ -24,5 +24,5 @@ pytest-cov==3.0.0
     # via -r requirements/test.in
 toml==0.10.2
     # via pytest
-tomli==1.2.1
+tomli==1.2.2
     # via coverage
