@@ -1,1 +1,2 @@
 include crowdsourcehinter_correct.png crowdsourcehinter_hint.png crowdsourcehinter_setup.png
+include requirements/constraints.txt
