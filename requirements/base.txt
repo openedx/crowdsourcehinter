@@ -8,7 +8,7 @@ appdirs==1.4.4
     # via fs
 fs==2.4.16
     # via xblock
-lxml==4.9.0
+lxml==4.9.1
     # via xblock
 markupsafe==2.1.1
     # via xblock
@@ -20,17 +20,17 @@ pyyaml==6.0
     # via xblock
 six==1.16.0
     # via
-    #   -r requirements/base.in
+    #   -r base.in
     #   fs
     #   python-dateutil
 web-fragments==2.0.0
     # via
-    #   -r requirements/base.in
+    #   -r base.in
     #   xblock
 webob==1.8.7
     # via xblock
 xblock==1.6.1
-    # via -r requirements/base.in
+    # via -r base.in
 
 # The following packages are considered to be unsafe in a requirements file:
 # setuptools
