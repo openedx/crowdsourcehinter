@@ -11,7 +11,7 @@ An example of after a student corrects their answer
 
 To bring the crowd sourced hinter into a demo course:
 
-Follow https://github.com/edx/edx-platform/wiki/Installing-a-new-XBlock for basic xblock installation. The name of the module to set in the advanced settings tab is "crowdsourcehinter".
+Follow https://github.com/openedx/edx-platform/wiki/Installing-a-new-XBlock for basic xblock installation. The name of the module to set in the advanced settings tab is "crowdsourcehinter".
 
 In studio view, edit the hinter so that the "Problem Element" is set to the "data-usage-id" of the problem block (findable by inspecting element of the problem block). If no problem element is set manually, the hinter will default to respond to the first problem block on the page.
 
