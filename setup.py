@@ -124,7 +124,7 @@ setup(
     },
     package_data=package_data("crowdsourcehinter", ["static", "public"]),
     keywords='crowdsourcehinter xblock',
-    url='https://github.com/edx/crowdsourcehinter',
+    url='https://github.com/openedx/crowdsourcehinter',
     author='edX',
     include_package_data=True,
     classifiers=[
