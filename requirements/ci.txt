@@ -4,11 +4,11 @@
 #
 #    make upgrade
 #
-flake8==4.0.1
+flake8==6.0.0
     # via -r requirements/ci.in
-mccabe==0.6.1
+mccabe==0.7.0
     # via flake8
-pycodestyle==2.8.0
+pycodestyle==2.10.0
     # via flake8
-pyflakes==2.4.0
+pyflakes==3.0.1
     # via flake8
