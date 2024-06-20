@@ -8,13 +8,6 @@ metadata:
   description: >
             This provides a student with hints when they
             incorrectly answer a problem within a course
-  links:
-    - url: "https://github.com/openedx/crowdsourcehinter"
-      title: "openedx/crowdsourcehinter"
-      icon: "GitHub"
-  annotations:
-    openedx.org/arch-interest-groups: ""
-    openedx.org/release: "main"
 spec:
   owner: group:openedx-unmaintained
   type: 'xblock'
