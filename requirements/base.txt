@@ -26,17 +26,17 @@ simplejson==3.19.2
     # via xblock
 six==1.16.0
     # via
-    #   -r requirements/base.in
+    #   -r base.in
     #   fs
     #   python-dateutil
 web-fragments==2.2.0
     # via
-    #   -r requirements/base.in
+    #   -r base.in
     #   xblock
-webob==1.8.7
+webob==1.8.8
     # via xblock
 xblock==3.1.0
-    # via -r requirements/base.in
+    # via -r base.in
 
 # The following packages are considered to be unsafe in a requirements file:
 # setuptools
