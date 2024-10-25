@@ -3,8 +3,6 @@ import json
 import logging
 import random
 
-import pkg_resources
-
 import six.moves.html_parser
 import six.moves.urllib.error
 import six.moves.urllib.parse
@@ -12,7 +10,12 @@ import six.moves.urllib.request
 from web_fragments.fragment import Fragment
 from xblock.core import XBlock
 from xblock.fields import Dict, List, Scope, String
+try:
+    from xblock.utils.resources import ResourceLoader
+except ModuleNotFoundError:  # For backward compatibility with releases older than Quince.
+    from xblockutils.resources import ResourceLoader
 
+resource_loader = ResourceLoader(__name__)
 log = logging.getLogger(__name__)
 html_parser = six.moves.html_parser.HTMLParser()
 
@@ -443,8 +446,7 @@ class CrowdsourceHinter(XBlock):
         """
         This function is used to get the path of static resources.
         """
-        data = pkg_resources.resource_string(__name__, path)
-        return data.decode("utf8")
+        return resource_loader.load_unicode(path)
 
     def get_user_is_staff(self):
         """
