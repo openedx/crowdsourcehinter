@@ -4,7 +4,7 @@
 #
 #    make upgrade
 #
-flake8==7.1.1
+flake8==7.1.2
     # via -r requirements/ci.in
 mccabe==0.7.0
     # via flake8
