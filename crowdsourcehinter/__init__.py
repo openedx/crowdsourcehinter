@@ -1,3 +1,5 @@
+from importlib.metadata import version
+
 from .crowdsourcehinter import CrowdsourceHinter
 
-__version__ = '1.0.1'
+__version__ = version("crowdsourcehinter-xblock")

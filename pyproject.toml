@@ -1,0 +1,64 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm>8.1"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "crowdsourcehinter-xblock"
+dynamic = ["version"]
+description = "crowdsourcehinter XBlock"
+readme = "README.md"
+license = "AGPL-3.0"
+license-files = ["LICENSE"]
+requires-python = ">=3.12"
+dependencies = [
+    "six>=1.16.0",
+    "xblock>=6.2.0",
+]
+keywords = ["crowdsourcehinter", "xblock"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Build Tools",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: Implementation :: CPython",
+]
+
+[project.entry-points."xblock.v1"]
+crowdsourcehinter = "crowdsourcehinter:CrowdsourceHinter"
+
+[project.urls]
+Homepage = "https://github.com/openedx/crowdsourcehinter"
+
+[tool.setuptools_scm]
+version_scheme = "only-version"
+local_scheme = "no-local-version"
+fallback_version = "0.0.0.dev0"
+
+[tool.setuptools.packages.find]
+include = ["crowdsourcehinter*"]
+
+[tool.setuptools.exclude-package-data]
+"*" = ["tests*", "*.tests*"]
+
+[tool.uv]
+package = true
+
+[tool.coverage.run]
+branch = true
+source = ["crowdsourcehinter"]
+omit = ["*/tests/*", "*/migrations/*", "*/__pycache__/*"]
+
+[tool.coverage.report]
+show_missing = true
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+    "if TYPE_CHECKING:",
+]
+
+[tool.coverage.html]
+directory = "htmlcov"
