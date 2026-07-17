@@ -128,7 +128,7 @@ class CrowdsourceHinter(XBlock):
                     'error': 'Generic hints should be a list.'}
         if not isinstance(initial_hints, dict):
             return {'success': False,
-                    'error' : 'Initial hints should be a dict.'}
+                    'error': 'Initial hints should be a dict.'}
 
         self.initial_hints = initial_hints
         self.generic_hints = generic_hints
@@ -175,16 +175,19 @@ class CrowdsourceHinter(XBlock):
             while len(self.hint_database[answer]) > 10:
                 rating_dict = {}
                 for hint in self.hint_database[answer]:
-                    rating_dict.update({hint: (self.hint_database[answer][hint]["upvotes"] - self.hint_database[answer][hint]["downvotes"])})
+                    upvotes = self.hint_database[answer][hint]["upvotes"]
+                    downvotes = self.hint_database[answer][hint]["downvotes"]
+                    rating_dict.update({hint: (upvotes - downvotes)})
                 del self.hint_database[answer][(min(rating_dict, key=rating_dict.get))]
-                    
 
     def compare_ratings(self, answer, hint, best):
         """
         Determine if the rating of a hint is better than the current
-        "best" hint. 
+        "best" hint.
         """
-        return (self.hint_database[answer][hint]["upvotes"] - self.hint_database[answer][hint]["downvotes"]) > (self.hint_database[answer][best]["upvotes"] - self.hint_database[answer][best]["downvotes"])
+        hint_rating = self.hint_database[answer][hint]["upvotes"] - self.hint_database[answer][hint]["downvotes"]
+        best_rating = self.hint_database[answer][best]["upvotes"] - self.hint_database[answer][best]["downvotes"]
+        return hint_rating > best_rating
 
     @XBlock.json_handler
     def get_hint(self, data, suffix=''):
@@ -270,7 +273,7 @@ class CrowdsourceHinter(XBlock):
         answer test to self.incorrect_answers.
 
         Args:
-          answer: This is equal to answer from get_hint, the answer 
+          answer: This is equal to answer from get_hint, the answer
             the student submitted
         Returns:
            False if there are no hints to show exist. In the future, this
@@ -352,7 +355,7 @@ class CrowdsourceHinter(XBlock):
         data_hint = data['hint']
 
         if any(data_hint in generic_hints for generic_hints in self.generic_hints):
-            return # TODO: Figure out how to manage generic hints
+            return  # TODO: Figure out how to manage generic hints
 
         if data['student_rating'] == 'unreport':
             if data_hint in self.reported_hints:
@@ -372,16 +375,14 @@ class CrowdsourceHinter(XBlock):
 
         elif data_rating == 'upvote':
             self.hint_database[answer_data][data_hint]["upvotes"] += 1
-            return {'success':True}
+            return {'success': True}
 
         elif data_rating == 'downvote':
             self.hint_database[answer_data][data_hint]["downvotes"] += 1
             return {'success': True}
 
         else:
-            return {'success':False, 'error': 'Unrecognized operation'}
-
-
+            return {'success': False, 'error': 'Unrecognized operation'}
 
     @XBlock.json_handler
     def add_new_hint(self, data, suffix=''):
@@ -396,10 +397,10 @@ class CrowdsourceHinter(XBlock):
 
         # If we don't have the hint already, add it
         if submission not in self.hint_database[answer]:
-            self.hint_database[answer].update({submission: {'upvotes':0, 'downvotes':0}})
-            return {'success':True,
+            self.hint_database[answer].update({submission: {'upvotes': 0, 'downvotes': 0}})
+            return {'success': True,
                     'result': 'Hint added'}
-        return {'success':True,
+        return {'success': True,
                 'result': 'We already had this hint. We gave it an upvote'}
 
     @XBlock.json_handler
@@ -420,7 +421,7 @@ class CrowdsourceHinter(XBlock):
              """
              <vertical_demo>
                <crowdsourcehinter>
-                 {"generic_hints": "Make sure to check for basic mistakes like typos", "initial_hints": {"michiganp": "remove the p at the end.", "michigann": "too many Ns on there."}, "target_problem": "i4x://edX/DemoX/problem/Text_Input"}
+                 {"generic_hints": "Make sure to check for basic mistakes like typos", "initial_hints": {"michiganp": "remove the p at the end.", "michigann": "too many Ns on there."}, "target_problem": "i4x://edX/DemoX/problem/Text_Input"}  # noqa: E501
                </crowdsourcehinter>
              </vertical_demo>""")
         ]
