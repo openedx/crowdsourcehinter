@@ -41,9 +41,35 @@ include = ["crowdsourcehinter*"]
 [tool.setuptools.exclude-package-data]
 "*" = ["tests*", "*.tests*"]
 
+[dependency-groups]
+# Base test packages, no Django version pinned
+test-base = ["pytest-cov"]
+# Default test group: current supported Django version
+test = [{include-group = "test-base"}, "Django>=5.2,<6.0"]
+# Legacy Django 4.2 support
+django42 = [{include-group = "test-base"}, "Django>=4.2,<5.0"]
+quality = [{include-group = "test"}, "flake8"]
+ci = ["tox", "tox-uv>=1"]
+dev = [{include-group = "quality"}, {include-group = "ci"}]
+
 [tool.uv]
 package = true
+conflicts = [
+    [
+        {group = "test"},
+        {group = "django42"},
+    ],
+]
 
+#  DO NOT EDIT constraint-dependencies DIRECTLY.
+#  This list is managed by `edx_lint write_uv_constraints`
+#  and will be overwritten the next time `make upgrade` is run.
+#  - GLOBAL constraints: edit edx_lint/files/common_constraints.txt
+#  - REPO-SPECIFIC constraints: edit [tool.edx_lint].uv_constraints in this file
+constraint-dependencies = [
+    "Django<6.0",
+    "elasticsearch<7.14.0",
+]
 [tool.coverage.run]
 branch = true
 source = ["crowdsourcehinter"]
