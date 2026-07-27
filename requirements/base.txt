@@ -24,7 +24,7 @@ pymongo==4.17.0
     # via edx-opaque-keys
 python-dateutil==2.9.0.post0
     # via xblock
-pytz==2026.2
+pytz==2026.3.post1
     # via xblock
 pyyaml==6.0.3
     # via xblock
@@ -35,13 +35,13 @@ six==1.17.0
     #   -r requirements/base.in
     #   fs
     #   python-dateutil
-stevedore==5.8.0
+stevedore==5.9.0
     # via edx-opaque-keys
-typing-extensions==4.15.0
+typing-extensions==4.16.0
     # via edx-opaque-keys
 webob==1.8.10
     # via xblock
-xblock==6.2.0
+xblock==6.3.1
     # via -r requirements/base.in
 
 # The following packages are considered to be unsafe in a requirements file:
