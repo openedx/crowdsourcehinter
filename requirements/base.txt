@@ -32,17 +32,17 @@ simplejson==4.1.1
     # via xblock
 six==1.17.0
     # via
-    #   -r requirements/base.in
+    #   -r base.in
     #   fs
     #   python-dateutil
 stevedore==5.8.0
     # via edx-opaque-keys
 typing-extensions==4.15.0
     # via edx-opaque-keys
-webob==1.8.10
+webob==1.8.11
     # via xblock
 xblock==6.2.0
-    # via -r requirements/base.in
+    # via -r base.in
 
 # The following packages are considered to be unsafe in a requirements file:
 # setuptools
